@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -81,11 +81,11 @@ ARCHITECTURE design_1_CSI_RX_0_0_arch OF design_1_CSI_RX_0_0 IS
     );
   END COMPONENT CSI_RX;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF design_1_CSI_RX_0_0_arch: ARCHITECTURE IS "CSI_RX,Vivado 2018.1";
+  ATTRIBUTE X_CORE_INFO OF design_1_CSI_RX_0_0_arch: ARCHITECTURE IS "CSI_RX,Vivado 2019.1.1";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF design_1_CSI_RX_0_0_arch : ARCHITECTURE IS "design_1_CSI_RX_0_0,CSI_RX,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF design_1_CSI_RX_0_0_arch: ARCHITECTURE IS "design_1_CSI_RX_0_0,CSI_RX,{x_ipProduct=Vivado 2018.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=CSI_RX,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=VHDL,DATA_WIDTH=8}";
+  ATTRIBUTE CORE_GENERATION_INFO OF design_1_CSI_RX_0_0_arch: ARCHITECTURE IS "design_1_CSI_RX_0_0,CSI_RX,{x_ipProduct=Vivado 2019.1.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=CSI_RX,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=VHDL,DATA_WIDTH=8}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF data_clk: SIGNAL IS "XIL_INTERFACENAME data_clk, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_CSI_RX_0_0_data_clk";

@@ -1,0 +1,27 @@
+#-----------------------------------------------------------
+# Vivado v2019.1.1 (64-bit)
+# SW Build 2580384 on Sat Jun 29 08:04:45 MDT 2019
+# IP Build 2579722 on Sat Jun 29 11:35:40 MDT 2019
+# Start of session at: Mon Jul  8 19:09:08 2019
+# Process ID: 27439
+# Current directory: /home/schulz/OneDrive/home/Projects/zedboard/zedboard-camera
+# Command line: vivado
+# Log file: /home/schulz/OneDrive/home/Projects/zedboard/zedboard-camera/vivado.log
+# Journal file: /home/schulz/OneDrive/home/Projects/zedboard/zedboard-camera/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/schulz/OneDrive/home/Projects/zedboard/zedboard-camera/hardware/zedcam/zedcam.xpr
+open_bd_design {/home/schulz/OneDrive/home/Projects/zedboard/zedboard-camera/hardware/zedcam/zedcam.srcs/sources_1/bd/design_1/design_1.bd}
+update_compile_order -fileset sources_1
+make_wrapper -files [get_files /home/schulz/OneDrive/home/Projects/zedboard/zedboard-camera/hardware/zedcam/zedcam.srcs/sources_1/bd/design_1/design_1.bd] -top
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+close_design
+file mkdir /home/schulz/OneDrive/home/Projects/zedboard/zedboard-camera/hardware/zedcam/zedcam.sdk
+file copy -force /home/schulz/OneDrive/home/Projects/zedboard/zedboard-camera/hardware/zedcam/zedcam.runs/impl_1/design_1_wrapper.sysdef /home/schulz/OneDrive/home/Projects/zedboard/zedboard-camera/hardware/zedcam/zedcam.sdk/design_1_wrapper.hdf
+
+launch_sdk -workspace /home/schulz/OneDrive/home/Projects/zedboard/zedboard-camera/hardware/zedcam/zedcam.sdk -hwspec /home/schulz/OneDrive/home/Projects/zedboard/zedboard-camera/hardware/zedcam/zedcam.sdk/design_1_wrapper.hdf

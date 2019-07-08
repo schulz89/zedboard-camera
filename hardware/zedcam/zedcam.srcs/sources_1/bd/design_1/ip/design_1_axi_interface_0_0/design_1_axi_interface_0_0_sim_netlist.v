@@ -1,10 +1,10 @@
-// Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+// Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.1 (lin64) Build 2188600 Wed Apr  4 18:39:19 MDT 2018
-// Date        : Wed Sep 26 17:24:51 2018
-// Host        : debian-mgm running 64-bit Debian GNU/Linux testing (buster)
+// Tool Version: Vivado v.2019.1.1 (lin64) Build 2580384 Sat Jun 29 08:04:45 MDT 2019
+// Date        : Mon Jul  8 19:05:46 2019
+// Host        : holo.sukide.su running 64-bit Fedora release 30 (Thirty)
 // Command     : write_verilog -force -mode funcsim
-//               /home/gabriel/xilinx_projects/zedcam/zedcam.srcs/sources_1/bd/design_1/ip/design_1_axi_interface_0_0/design_1_axi_interface_0_0_sim_netlist.v
+//               /home/schulz/OneDrive/home/Projects/zedboard/zedboard-camera/hardware/zedcam/zedcam.srcs/sources_1/bd/design_1/ip/design_1_axi_interface_0_0/design_1_axi_interface_0_0_sim_netlist.v
 // Design      : design_1_axi_interface_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,7 +12,7 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "design_1_axi_interface_0_0,axi_interface_v2_37a,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_interface_v2_37a,Vivado 2018.1" *) 
+(* CHECK_LICENSE_TYPE = "design_1_axi_interface_0_0,axi_interface_v2_37a,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_interface_v2_37a,Vivado 2019.1.1" *) 
 (* NotValidForBitStream *)
 module design_1_axi_interface_0_0
    (data_in_0,
@@ -118,6 +118,7 @@ module design_1_axi_interface_0_0
         .S_AXI_ARREADY(s00_axi_arready),
         .S_AXI_AWREADY(s00_axi_awready),
         .S_AXI_WREADY(s00_axi_wready),
+        .axi_wready_reg(write_enable),
         .data_in_0(data_in_0),
         .data_in_1(data_in_1),
         .data_in_2(data_in_2),
@@ -139,8 +140,7 @@ module design_1_axi_interface_0_0
         .s00_axi_rvalid(s00_axi_rvalid),
         .s00_axi_wdata(s00_axi_wdata),
         .s00_axi_wstrb(s00_axi_wstrb),
-        .s00_axi_wvalid(s00_axi_wvalid),
-        .write_enable(write_enable));
+        .s00_axi_wvalid(s00_axi_wvalid));
 endmodule
 
 (* ORIG_REF_NAME = "axi_interface_v2_37a" *) 
@@ -154,7 +154,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a
     S_AXI_ARREADY,
     s00_axi_rdata,
     E,
-    write_enable,
+    axi_wready_reg,
     s00_axi_rvalid,
     s00_axi_bvalid,
     s00_axi_aclk,
@@ -181,7 +181,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a
   output S_AXI_ARREADY;
   output [31:0]s00_axi_rdata;
   output [0:0]E;
-  output write_enable;
+  output axi_wready_reg;
   output s00_axi_rvalid;
   output s00_axi_bvalid;
   input s00_axi_aclk;
@@ -204,6 +204,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a
   wire S_AXI_ARREADY;
   wire S_AXI_AWREADY;
   wire S_AXI_WREADY;
+  wire axi_wready_reg;
   wire [31:0]data_in_0;
   wire [31:0]data_in_1;
   wire [31:0]data_in_2;
@@ -226,13 +227,13 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a
   wire [31:0]s00_axi_wdata;
   wire [3:0]s00_axi_wstrb;
   wire s00_axi_wvalid;
-  wire write_enable;
 
   design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI axi_interface_v2_37a_S00_AXI_inst
        (.E(E),
         .S_AXI_ARREADY(S_AXI_ARREADY),
         .S_AXI_AWREADY(S_AXI_AWREADY),
         .S_AXI_WREADY(S_AXI_WREADY),
+        .axi_wready_reg_0(axi_wready_reg),
         .data_in_0(data_in_0),
         .data_in_1(data_in_1),
         .data_in_2(data_in_2),
@@ -254,8 +255,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a
         .s00_axi_rvalid(s00_axi_rvalid),
         .s00_axi_wdata(s00_axi_wdata),
         .s00_axi_wstrb(s00_axi_wstrb),
-        .s00_axi_wvalid(s00_axi_wvalid),
-        .write_enable(write_enable));
+        .s00_axi_wvalid(s00_axi_wvalid));
 endmodule
 
 (* ORIG_REF_NAME = "axi_interface_v2_37a_S00_AXI" *) 
@@ -269,7 +269,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
     S_AXI_ARREADY,
     s00_axi_rdata,
     E,
-    write_enable,
+    axi_wready_reg_0,
     s00_axi_rvalid,
     s00_axi_bvalid,
     s00_axi_aclk,
@@ -296,7 +296,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   output S_AXI_ARREADY;
   output [31:0]s00_axi_rdata;
   output [0:0]E;
-  output write_enable;
+  output axi_wready_reg_0;
   output s00_axi_rvalid;
   output s00_axi_bvalid;
   input s00_axi_aclk;
@@ -329,6 +329,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   wire axi_bvalid_i_1_n_0;
   wire axi_rvalid_i_1_n_0;
   wire axi_wready0;
+  wire axi_wready_reg_0;
   wire [31:0]data_in_0;
   wire [31:0]data_in_1;
   wire [31:0]data_in_2;
@@ -367,7 +368,6 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   wire \slv_reg3[23]_i_1_n_0 ;
   wire \slv_reg3[31]_i_1_n_0 ;
   wire \slv_reg3[7]_i_1_n_0 ;
-  wire write_enable;
 
   LUT4 #(
     .INIT(16'hFB08)) 
@@ -1022,7 +1022,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h0200)) 
     \slv_reg0[15]_i_1 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(p_0_in[1]),
         .I2(p_0_in[0]),
         .I3(s00_axi_wstrb[1]),
@@ -1030,7 +1030,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h0200)) 
     \slv_reg0[23]_i_1 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(p_0_in[1]),
         .I2(p_0_in[0]),
         .I3(s00_axi_wstrb[2]),
@@ -1043,7 +1043,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h0200)) 
     \slv_reg0[31]_i_2 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(p_0_in[1]),
         .I2(p_0_in[0]),
         .I3(s00_axi_wstrb[3]),
@@ -1051,7 +1051,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h0200)) 
     \slv_reg0[7]_i_1 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(p_0_in[1]),
         .I2(p_0_in[0]),
         .I3(s00_axi_wstrb[0]),
@@ -1251,7 +1251,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h0080)) 
     \slv_reg1[15]_i_1 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(s00_axi_wstrb[1]),
         .I2(p_0_in[0]),
         .I3(p_0_in[1]),
@@ -1259,7 +1259,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h0080)) 
     \slv_reg1[23]_i_1 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(s00_axi_wstrb[2]),
         .I2(p_0_in[0]),
         .I3(p_0_in[1]),
@@ -1267,7 +1267,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h0080)) 
     \slv_reg1[31]_i_1 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(s00_axi_wstrb[3]),
         .I2(p_0_in[0]),
         .I3(p_0_in[1]),
@@ -1275,7 +1275,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h0080)) 
     \slv_reg1[7]_i_1 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(s00_axi_wstrb[0]),
         .I2(p_0_in[0]),
         .I3(p_0_in[1]),
@@ -1475,7 +1475,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h0080)) 
     \slv_reg2[15]_i_1 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(p_0_in[1]),
         .I2(s00_axi_wstrb[1]),
         .I3(p_0_in[0]),
@@ -1483,7 +1483,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h0080)) 
     \slv_reg2[23]_i_1 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(p_0_in[1]),
         .I2(s00_axi_wstrb[2]),
         .I3(p_0_in[0]),
@@ -1491,7 +1491,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h0080)) 
     \slv_reg2[31]_i_1 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(p_0_in[1]),
         .I2(s00_axi_wstrb[3]),
         .I3(p_0_in[0]),
@@ -1499,7 +1499,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h0080)) 
     \slv_reg2[7]_i_1 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(p_0_in[1]),
         .I2(s00_axi_wstrb[0]),
         .I3(p_0_in[0]),
@@ -1699,7 +1699,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h8000)) 
     \slv_reg3[15]_i_1 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(s00_axi_wstrb[1]),
         .I2(p_0_in[0]),
         .I3(p_0_in[1]),
@@ -1707,7 +1707,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h8000)) 
     \slv_reg3[23]_i_1 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(s00_axi_wstrb[2]),
         .I2(p_0_in[0]),
         .I3(p_0_in[1]),
@@ -1715,7 +1715,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h8000)) 
     \slv_reg3[31]_i_1 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(s00_axi_wstrb[3]),
         .I2(p_0_in[0]),
         .I3(p_0_in[1]),
@@ -1723,7 +1723,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
   LUT4 #(
     .INIT(16'h8000)) 
     \slv_reg3[7]_i_1 
-       (.I0(write_enable),
+       (.I0(axi_wready_reg_0),
         .I1(s00_axi_wstrb[0]),
         .I2(p_0_in[0]),
         .I3(p_0_in[1]),
@@ -1928,7 +1928,7 @@ module design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI
         .I1(S_AXI_AWREADY),
         .I2(s00_axi_wvalid),
         .I3(s00_axi_awvalid),
-        .O(write_enable));
+        .O(axi_wready_reg_0));
 endmodule
 `ifndef GLBL
 `define GLBL

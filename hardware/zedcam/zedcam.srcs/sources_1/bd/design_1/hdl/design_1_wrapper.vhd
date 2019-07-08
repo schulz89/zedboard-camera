@@ -1,8 +1,8 @@
---Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+--Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
---Tool Version: Vivado v.2018.1 (lin64) Build 2188600 Wed Apr  4 18:39:19 MDT 2018
---Date        : Thu Oct  4 11:55:29 2018
---Host        : debian-mgm running 64-bit Debian GNU/Linux testing (buster)
+--Tool Version: Vivado v.2019.1.1 (lin64) Build 2580384 Sat Jun 29 08:04:45 MDT 2019
+--Date        : Mon Jul  8 19:03:42 2019
+--Host        : holo.sukide.su running 64-bit Fedora release 30 (Thirty)
 --Command     : generate_target design_1_wrapper.bd
 --Design      : design_1_wrapper
 --Purpose     : IP block netlist
@@ -82,9 +82,9 @@ architecture STRUCTURE of design_1_wrapper is
     sys_clock : in STD_LOGIC;
     xclk_0 : out STD_LOGIC;
     data_in_0 : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    hsync_0 : in STD_LOGIC;
     pclk_0 : in STD_LOGIC;
-    vsync_0 : in STD_LOGIC
+    vsync_0 : in STD_LOGIC;
+    hsync_0 : in STD_LOGIC
   );
   end component design_1;
   component IOBUF is

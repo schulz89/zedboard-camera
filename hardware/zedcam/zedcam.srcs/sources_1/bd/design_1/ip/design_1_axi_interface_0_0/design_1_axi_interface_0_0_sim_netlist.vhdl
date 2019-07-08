@@ -1,10 +1,10 @@
--- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2018.1 (lin64) Build 2188600 Wed Apr  4 18:39:19 MDT 2018
--- Date        : Wed Sep 26 17:24:52 2018
--- Host        : debian-mgm running 64-bit Debian GNU/Linux testing (buster)
+-- Tool Version: Vivado v.2019.1.1 (lin64) Build 2580384 Sat Jun 29 08:04:45 MDT 2019
+-- Date        : Mon Jul  8 19:05:47 2019
+-- Host        : holo.sukide.su running 64-bit Fedora release 30 (Thirty)
 -- Command     : write_vhdl -force -mode funcsim
---               /home/gabriel/xilinx_projects/zedcam/zedcam.srcs/sources_1/bd/design_1/ip/design_1_axi_interface_0_0/design_1_axi_interface_0_0_sim_netlist.vhdl
+--               /home/schulz/OneDrive/home/Projects/zedboard/zedboard-camera/hardware/zedcam/zedcam.srcs/sources_1/bd/design_1/ip/design_1_axi_interface_0_0/design_1_axi_interface_0_0_sim_netlist.vhdl
 -- Design      : design_1_axi_interface_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -25,7 +25,7 @@ entity design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AXI is
     S_AXI_ARREADY : out STD_LOGIC;
     s00_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     E : out STD_LOGIC_VECTOR ( 0 to 0 );
-    write_enable : out STD_LOGIC;
+    axi_wready_reg_0 : out STD_LOGIC;
     s00_axi_rvalid : out STD_LOGIC;
     s00_axi_bvalid : out STD_LOGIC;
     s00_axi_aclk : in STD_LOGIC;
@@ -63,6 +63,7 @@ architecture STRUCTURE of design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AX
   signal axi_bvalid_i_1_n_0 : STD_LOGIC;
   signal axi_rvalid_i_1_n_0 : STD_LOGIC;
   signal axi_wready0 : STD_LOGIC;
+  signal \^axi_wready_reg_0\ : STD_LOGIC;
   signal p_0_in : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal p_1_in : STD_LOGIC_VECTOR ( 31 downto 7 );
   signal reg_data_out : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -81,7 +82,6 @@ architecture STRUCTURE of design_1_axi_interface_0_0_axi_interface_v2_37a_S00_AX
   signal \slv_reg3[23]_i_1_n_0\ : STD_LOGIC;
   signal \slv_reg3[31]_i_1_n_0\ : STD_LOGIC;
   signal \slv_reg3[7]_i_1_n_0\ : STD_LOGIC;
-  signal \^write_enable\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of axi_arready_i_1 : label is "soft_lutpair2";
   attribute SOFT_HLUTNM of \axi_awaddr[2]_i_1\ : label is "soft_lutpair0";
@@ -94,9 +94,9 @@ begin
   S_AXI_ARREADY <= \^s_axi_arready\;
   S_AXI_AWREADY <= \^s_axi_awready\;
   S_AXI_WREADY <= \^s_axi_wready\;
+  axi_wready_reg_0 <= \^axi_wready_reg_0\;
   s00_axi_bvalid <= \^s00_axi_bvalid\;
   s00_axi_rvalid <= \^s00_axi_rvalid\;
-  write_enable <= \^write_enable\;
 \axi_araddr[2]_i_1\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"FB08"
@@ -955,7 +955,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"0200"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => p_0_in(1),
       I2 => p_0_in(0),
       I3 => s00_axi_wstrb(1),
@@ -966,7 +966,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"0200"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => p_0_in(1),
       I2 => p_0_in(0),
       I3 => s00_axi_wstrb(2),
@@ -985,7 +985,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"0200"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => p_0_in(1),
       I2 => p_0_in(0),
       I3 => s00_axi_wstrb(3),
@@ -996,7 +996,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"0200"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => p_0_in(1),
       I2 => p_0_in(0),
       I3 => s00_axi_wstrb(0),
@@ -1263,7 +1263,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"0080"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => s00_axi_wstrb(1),
       I2 => p_0_in(0),
       I3 => p_0_in(1),
@@ -1274,7 +1274,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"0080"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => s00_axi_wstrb(2),
       I2 => p_0_in(0),
       I3 => p_0_in(1),
@@ -1285,7 +1285,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"0080"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => s00_axi_wstrb(3),
       I2 => p_0_in(0),
       I3 => p_0_in(1),
@@ -1296,7 +1296,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"0080"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => s00_axi_wstrb(0),
       I2 => p_0_in(0),
       I3 => p_0_in(1),
@@ -1563,7 +1563,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"0080"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => p_0_in(1),
       I2 => s00_axi_wstrb(1),
       I3 => p_0_in(0),
@@ -1574,7 +1574,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"0080"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => p_0_in(1),
       I2 => s00_axi_wstrb(2),
       I3 => p_0_in(0),
@@ -1585,7 +1585,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"0080"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => p_0_in(1),
       I2 => s00_axi_wstrb(3),
       I3 => p_0_in(0),
@@ -1596,7 +1596,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"0080"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => p_0_in(1),
       I2 => s00_axi_wstrb(0),
       I3 => p_0_in(0),
@@ -1863,7 +1863,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"8000"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => s00_axi_wstrb(1),
       I2 => p_0_in(0),
       I3 => p_0_in(1),
@@ -1874,7 +1874,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"8000"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => s00_axi_wstrb(2),
       I2 => p_0_in(0),
       I3 => p_0_in(1),
@@ -1885,7 +1885,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"8000"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => s00_axi_wstrb(3),
       I2 => p_0_in(0),
       I3 => p_0_in(1),
@@ -1896,7 +1896,7 @@ read_enable_INST_0: unisim.vcomponents.LUT3
       INIT => X"8000"
     )
         port map (
-      I0 => \^write_enable\,
+      I0 => \^axi_wready_reg_0\,
       I1 => s00_axi_wstrb(0),
       I2 => p_0_in(0),
       I3 => p_0_in(1),
@@ -2167,7 +2167,7 @@ write_enable_INST_0: unisim.vcomponents.LUT4
       I1 => \^s_axi_awready\,
       I2 => s00_axi_wvalid,
       I3 => s00_axi_awvalid,
-      O => \^write_enable\
+      O => \^axi_wready_reg_0\
     );
 end STRUCTURE;
 library IEEE;
@@ -2185,7 +2185,7 @@ entity design_1_axi_interface_0_0_axi_interface_v2_37a is
     S_AXI_ARREADY : out STD_LOGIC;
     s00_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     E : out STD_LOGIC_VECTOR ( 0 to 0 );
-    write_enable : out STD_LOGIC;
+    axi_wready_reg : out STD_LOGIC;
     s00_axi_rvalid : out STD_LOGIC;
     s00_axi_bvalid : out STD_LOGIC;
     s00_axi_aclk : in STD_LOGIC;
@@ -2216,6 +2216,7 @@ axi_interface_v2_37a_S00_AXI_inst: entity work.design_1_axi_interface_0_0_axi_in
       S_AXI_ARREADY => S_AXI_ARREADY,
       S_AXI_AWREADY => S_AXI_AWREADY,
       S_AXI_WREADY => S_AXI_WREADY,
+      axi_wready_reg_0 => axi_wready_reg,
       data_in_0(31 downto 0) => data_in_0(31 downto 0),
       data_in_1(31 downto 0) => data_in_1(31 downto 0),
       data_in_2(31 downto 0) => data_in_2(31 downto 0),
@@ -2237,8 +2238,7 @@ axi_interface_v2_37a_S00_AXI_inst: entity work.design_1_axi_interface_0_0_axi_in
       s00_axi_rvalid => s00_axi_rvalid,
       s00_axi_wdata(31 downto 0) => s00_axi_wdata(31 downto 0),
       s00_axi_wstrb(3 downto 0) => s00_axi_wstrb(3 downto 0),
-      s00_axi_wvalid => s00_axi_wvalid,
-      write_enable => write_enable
+      s00_axi_wvalid => s00_axi_wvalid
     );
 end STRUCTURE;
 library IEEE;
@@ -2286,7 +2286,7 @@ entity design_1_axi_interface_0_0 is
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of design_1_axi_interface_0_0 : entity is "yes";
   attribute x_core_info : string;
-  attribute x_core_info of design_1_axi_interface_0_0 : entity is "axi_interface_v2_37a,Vivado 2018.1";
+  attribute x_core_info of design_1_axi_interface_0_0 : entity is "axi_interface_v2_37a,Vivado 2019.1.1";
 end design_1_axi_interface_0_0;
 
 architecture STRUCTURE of design_1_axi_interface_0_0 is
@@ -2332,6 +2332,7 @@ U0: entity work.design_1_axi_interface_0_0_axi_interface_v2_37a
       S_AXI_ARREADY => s00_axi_arready,
       S_AXI_AWREADY => s00_axi_awready,
       S_AXI_WREADY => s00_axi_wready,
+      axi_wready_reg => write_enable,
       data_in_0(31 downto 0) => data_in_0(31 downto 0),
       data_in_1(31 downto 0) => data_in_1(31 downto 0),
       data_in_2(31 downto 0) => data_in_2(31 downto 0),
@@ -2353,7 +2354,6 @@ U0: entity work.design_1_axi_interface_0_0_axi_interface_v2_37a
       s00_axi_rvalid => s00_axi_rvalid,
       s00_axi_wdata(31 downto 0) => s00_axi_wdata(31 downto 0),
       s00_axi_wstrb(3 downto 0) => s00_axi_wstrb(3 downto 0),
-      s00_axi_wvalid => s00_axi_wvalid,
-      write_enable => write_enable
+      s00_axi_wvalid => s00_axi_wvalid
     );
 end STRUCTURE;

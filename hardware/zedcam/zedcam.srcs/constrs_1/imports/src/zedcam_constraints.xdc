@@ -35,11 +35,11 @@ set_property PACKAGE_PIN AB10 [get_ports {data_in_0[0]}]
 
 # Reset
 set_property IOSTANDARD LVCMOS33 [get_ports {reset_0_tri_o[0]}]
-set_property PACKAGE_PIN V12 [get_ports {reset_0_tri_o[0]}]
+set_property PACKAGE_PIN AB11 [get_ports {reset_0_tri_o[0]}]
 
 # Standby
 set_property IOSTANDARD LVCMOS33 [get_ports {standby_0_tri_o[0]}]
-set_property PACKAGE_PIN W12 [get_ports {standby_0_tri_o[0]}]
+set_property PACKAGE_PIN Y11 [get_ports {standby_0_tri_o[0]}]
 
 # I2C SDA
 set_property IOSTANDARD LVCMOS33 [get_ports IIC_0_0_sda_io]
